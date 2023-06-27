@@ -1,0 +1,11 @@
+com\emergentes\modelo\Usuario.class
+com\emergentes\dao\PersonaDAO.class
+com\emergentes\dao\PersonaDAOimpl.class
+com\emergentes\controlador\PersonaControlador.class
+com\emergentes\utiles\ConexionDataBase.class
+com\emergentes\controlador\UsuarioControlador.class
+com\emergentes\controlador\PrincipalControlador.class
+com\emergentes\dao\UsuarioDAOimpl.class
+com\emergentes\controlador\LoginControlador.class
+com\emergentes\dao\UsuarioDAO.class
+com\emergentes\modelo\Persona.class
