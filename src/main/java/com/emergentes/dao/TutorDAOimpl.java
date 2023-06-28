@@ -60,7 +60,7 @@ public class TutorDAOimpl extends ConexionDataBase implements TutorDAO {
         List<Tutor> lista = null;
         try {
             this.conectar();
-            String sql = "SELECT t.*, CONCAT(p.nombre,' ',p.paterno,' ',p.materno) tutor FROM tutor t left join persona p on p.persona_nro = t.persona_nro";
+            String sql = "SELECT t.*, CONCAT(p.nombre,' ',p.paterno,' ',p.materno) tutor, CONCAT(p.ci,' ',p.nombre,' ',p.paterno,' ',p.materno) tutor_ci FROM tutor t left join persona p on p.persona_nro = t.persona_nro";
             PreparedStatement ps = this.conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             lista = new ArrayList<Tutor>();
@@ -68,7 +68,7 @@ public class TutorDAOimpl extends ConexionDataBase implements TutorDAO {
                 Tutor u = new Tutor();
                 u.setTutor_nro(rs.getString("tutor_nro"));
                 u.setParentesco(rs.getString("parentesco"));
-                u.setTutor(rs.getString("tutor"));
+                u.setTutor(rs.getString("tutor_ci"));
                 u.setPersona_nro(rs.getString("persona_nro"));
                 lista.add(u);
             }

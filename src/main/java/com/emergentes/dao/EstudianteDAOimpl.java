@@ -63,19 +63,24 @@ public class EstudianteDAOimpl extends ConexionDataBase implements EstudianteDAO
         List<Estudiante> lista = null;
         try {
             this.conectar();
-            String sql = "SELECT a.*, CONCAT(p.nombre,' ',p.paterno,' ',p.materno) estudiante FROM estudiante a left join persona p on p.persona_nro = a.persona_nro";
+            String sql = "SELECT e.*, CONCAT(p.nombre,' ',p.paterno,' ',p.materno) estudiante, CONCAT(tut.nombre,' ',tut.paterno,' ',tut.materno) tutor FROM estudiante e"
+                    + " left join persona p on p.persona_nro = e.persona_nro"
+                    + " left join tutor t on t.tutor_nro = e.tutor_nro"
+                    + " left join persona tut on tut.persona_nro = t.persona_nro";
             PreparedStatement ps = this.conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
-            System.out.println(rs);
             lista = new ArrayList<Estudiante>();
             while (rs.next()) {
-                Estudiante u = new Estudiante();
+                Estudiante e = new Estudiante();
 
-                u.setEstudiante_nro(rs.getString("estudiante_nro"));
-                u.setCargo(rs.getString("cargo"));
-                u.setEstudiante(rs.getString("estudiante"));
-                u.setPersona_nro(rs.getString("persona_nro"));
-                lista.add(u);
+                e.setEstudiante_nro(rs.getString("estudiante_nro"));
+                e.setRude(rs.getInt("rude"));
+                e.setEstudiante(rs.getString("estudiante"));
+                e.setTutor(rs.getString("tutor"));
+                e.setTutor_nro(rs.getString("tutor_nro"));
+
+                e.setPersona_nro(rs.getString("persona_nro"));
+                lista.add(e);
             }
             rs.close();
             ps.close();
@@ -89,7 +94,7 @@ public class EstudianteDAOimpl extends ConexionDataBase implements EstudianteDAO
 
     @Override
     public Estudiante getById(String estudiante_nro) throws Exception {
-        Estudiante u = new Estudiante();
+        Estudiante e = new Estudiante();
         try {
             this.conectar();
             String sql = "select * from estudiante where estudiante_nro=?";
@@ -97,16 +102,17 @@ public class EstudianteDAOimpl extends ConexionDataBase implements EstudianteDAO
             ps.setString(1, estudiante_nro);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                u.setEstudiante_nro(rs.getString("estudiante_nro"));
-                u.setCargo(rs.getString("cargo"));
-                u.setPersona_nro(rs.getString("persona_nro"));
+                e.setEstudiante_nro(rs.getString("estudiante_nro"));
+                e.setRude(rs.getInt("rude"));
+                e.setTutor_nro(rs.getString("tutor_nro"));
+                e.setPersona_nro(rs.getString("persona_nro"));
             }
-        } catch (SQLException e) {
-            System.out.println("error5: " + e);
+        } catch (SQLException err) {
+            System.out.println("error5: " + err);
         } finally {
             this.desconectar();
         }
-        return u;
+        return e;
     }
 
     @Override

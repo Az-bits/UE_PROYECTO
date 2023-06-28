@@ -30,7 +30,7 @@ public class LoginControlador extends HttpServlet {
             ses.invalidate();
         }
 
-        response.sendRedirect("Principal.jsp");
+        response.sendRedirect("Login.jsp");
     }
 
     @Override
@@ -39,8 +39,8 @@ public class LoginControlador extends HttpServlet {
         
         try {
             String usuario = request.getParameter("usuario");
-            String password = request.getParameter("password");
-            String sql = "select * from usuarios where usuario=? and contraseña=?";
+            String password = request.getParameter("contrasenia");
+            String sql = "select * from usuario  where usuario=? and contraseña=?";
             ResultSet rs;
 
             ConexionDataBase canal = new ConexionDataBase();
@@ -57,9 +57,9 @@ public class LoginControlador extends HttpServlet {
                 HttpSession ses = request.getSession();
                 ses.setAttribute("logueado", "OK");
                 /*ses.setAttribute("usuario", rs.getString("nombres") + rs.getString("apellidos"));*/
-                response.sendRedirect("UsuarioControlador");
+                response.sendRedirect("PrincipalControlador");
             } else {
-                response.sendRedirect("login.jsp");
+                response.sendRedirect("Login.jsp");
             }
 
         } catch (SQLException ex) {

@@ -1,4 +1,8 @@
 <%
+    if (session.getAttribute("logueado") != "OK") {
+        response.sendRedirect("login.jsp");
+    }
+    
     String vista = (String) request.getAttribute("vista");
     String nuevaVista = vista;
     if (nuevaVista == "Dashboard") {
@@ -273,7 +277,7 @@
                                                 borderRadius: 4,
                                                 borderSkipped: false,
                                                 backgroundColor: "#fff",
-                                                data: [450, 200, 100, 220, 500, 100, 400, 230, 500],
+                                                data: [80, 75, 80, 76, 67, 76, 84, 83, 85],
                                                 maxBarThickness: 6,
                                             },
                                         ],

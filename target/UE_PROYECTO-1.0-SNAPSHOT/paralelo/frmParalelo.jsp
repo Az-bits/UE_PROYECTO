@@ -12,6 +12,7 @@
                 </div>
             </div>
             <div class="button-row d-flex mt-4">
+                <a href="ParaleloControlador" class="btn bg-gradient-danger mb-0 js-btn-next"><i class="fa-solid fa-xmark"></i> Cancelar</a>
                 <button class="btn bg-gradient-dark ms-auto mb-0 js-btn-next" type="submit" title="Next"><i class="fa-solid fa-floppy-disk"></i> Guardar</button>
             </div>
         </div>
