@@ -66,7 +66,7 @@ public class UsuarioDAOimpl extends ConexionDataBase implements UsuarioDAO {
         List<Usuario> lista = null;
         try {
             this.conectar();
-            String sql = "SELECT * FROM usuario";
+            String sql = "SELECT u.*, CONCAT(p.nombre,' ',p.paterno,' ',p.materno) nombre_usuario FROM usuario u left join persona p on p.persona_nro = u.persona_nro";
             PreparedStatement ps = this.conn.prepareStatement(sql);
             ResultSet rs = ps.executeQuery();
             System.out.println(rs);
@@ -77,6 +77,7 @@ public class UsuarioDAOimpl extends ConexionDataBase implements UsuarioDAO {
                 u.setUsuario_nro(rs.getString("usuario_nro"));
                 u.setPersona_nro(rs.getString("persona_nro"));
                 u.setUsuario(rs.getString("usuario"));
+                u.setNombre_usuario(rs.getString("nombre_usuario"));
                 u.setContraseña(rs.getString("contraseña"));
                 u.setTipo_usuario(rs.getString("tipo_usuario"));
                 u.setCorreo_electronico(rs.getString("correo_electronico"));

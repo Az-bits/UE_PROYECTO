@@ -103,8 +103,6 @@ public class UsuarioControlador extends HttpServlet {
         usu.setContraseña(contraseña);
         usu.setTipo_usuario(tipo_usuario);
         usu.setCorreo_electronico(correo_electronico);
-        System.out.println("entro post  ");
-        System.out.println(usu);
         switch (action) {
             case "add":
                 //Nuevo

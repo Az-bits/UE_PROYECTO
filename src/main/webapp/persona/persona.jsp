@@ -128,7 +128,7 @@
                                         <td class="text-sm font-weight-normal">${item.fecha_nac}</td>
                                         <td class="text-sm font-weight-normal">${item.telefono}</td>
                                         <td class="text-sm font-weight-normal">
-                                            <a href="PersonaControlador?action=edit&persona_nro=${item.persona_nro}&vista=frmPersona" class="btn bg-gradient-warning btn-sm">
+                                            <a href="PersonaControlador?action=edit&persona_nro=${item.persona_nro}&vista=frmPersona" class="btn bg-gradient-info btn-sm">
                                                 <i class="fa-solid fa-pencil" style="font-size: 1rem;"></i>
                                             </a>
                                             <a href="PersonaControlador?action=delete&persona_nro=${item.persona_nro}" onclick="return(confirm('Estas seguro de eliminar'))" class="btn bg-gradient-danger btn-sm">

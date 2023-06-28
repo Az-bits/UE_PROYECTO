@@ -15,7 +15,6 @@
                 <div
                     class="dataTable-wrapper dataTable-loading no-footer sortable fixed-height fixed-columns"
                     >
-                  
                     <div class="dataTable-container" style="height: 498.265px">
                         <table
                             class="table table-flush dataTable-table"
@@ -74,27 +73,21 @@
                                             ${item.asignatura_nro}
                                         </td>
                                          <td class="text-sm font-weight-normal">
-                                            ${item.ci}
+                                            ${item.descripcion}
                                         </td>
                                         <td class="text-sm font-weight-normal">
-                                            ${item.nombre}
+                                            ${item.sigla}
                                         </td>
-                                        <td class="text-sm font-weight-normal">${item.paterno}</td>
-                                        <td class="text-sm font-weight-normal">${item.materno}</td>
-                                        <td class="text-sm font-weight-normal">${item.fecha_nac}</td>
-                                        <td class="text-sm font-weight-normal">${item.telefono}</td>
                                         <td class="text-sm font-weight-normal">
-                                            <a href="AsignaturaControlador?action=edit&asignatura_nro=${item.asignatura_nro}&vista=frmAsignatura" class="btn bg-gradient-warning btn-sm">
+                                            <a href="AsignaturaControlador?action=edit&asignatura_nro=${item.asignatura_nro}&vista=frmAsignatura" class="btn bg-gradient-info btn-sm">
                                                 <i class="fa-solid fa-pencil" style="font-size: 1rem;"></i>
                                             </a>
                                             <a href="AsignaturaControlador?action=delete&asignatura_nro=${item.asignatura_nro}" onclick="return(confirm('Estas seguro de eliminar'))" class="btn bg-gradient-danger btn-sm">
                                                  <i class="fa-solid fa-trash" style="font-size: 1rem;"  ></i>
                                             </a>
                                         </td>
-
                                     </tr>
                                 </c:forEach>
-
                             </tbody>
                         </table>
                     </div> 

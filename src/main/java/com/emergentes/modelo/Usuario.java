@@ -4,6 +4,15 @@ public class Usuario {
     private String usuario_nro;
     private String persona_nro;
     private String usuario;
+
+    public String getNombre_usuario() {
+        return nombre_usuario;
+    }
+
+    public void setNombre_usuario(String nombre_usuario) {
+        this.nombre_usuario = nombre_usuario;
+    }
+    private String nombre_usuario;
     private String contraseña;
     private String tipo_usuario;
     private String correo_electronico;

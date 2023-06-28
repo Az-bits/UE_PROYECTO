@@ -91,11 +91,11 @@
                                             ${item.usuario}
                                         </td>
                                         <td class="text-sm font-weight-normal">
-                                            ${item.usuario}
+                                            ${item.nombre_usuario}
                                         </td>
                                         <td class="text-sm font-weight-normal">${item.tipo_usuario}</td>
                                         <td class="text-sm font-weight-normal">
-                                            <a href="UsuarioControlador?action=edit&usuario_nro=${item.usuario_nro}&vista=frmUsuario" class="btn bg-gradient-warning btn-sm">
+                                            <a href="UsuarioControlador?action=edit&usuario_nro=${item.usuario_nro}&vista=frmUsuario" class="btn bg-gradient-info btn-sm">
                                                 <i class="fa-solid fa-pencil" style="font-size: 1rem;"></i>
                                             </a>
                                             <a href="UsuarioControlador?action=delete&usuario_nro=${item.usuario_nro}" onclick="return(confirm('Estas seguro de eliminar'))" class="btn bg-gradient-danger btn-sm">
